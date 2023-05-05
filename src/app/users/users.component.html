@@ -1,0 +1,21 @@
+<p>users works!</p>
+
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a [routerLink]="['/users', 1, 'Anshus']" class="nav-link"
+    [queryParams]="{page:1, search:'Anshu'}"
+      >Get Anshus details</a
+    >
+  </li>
+  <li class="nav-item">
+    <a [routerLink]="['/users', 1, 'raeez']"   [queryParams]="{page:1, search:'Raeez'}"  class="nav-link"
+      >Get raeez details</a
+    >
+  </li>
+  <li class="nav-item">
+    <a [routerLink]="['/users', 1, 'neelofer']" [queryParams]="{page:1, search:'neelofer'}" class="nav-link"
+      >Get neeloos details</a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
