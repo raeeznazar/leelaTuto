@@ -6,21 +6,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { EditComponent } from './edit/edit.component';
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  {
-    path: 'users',
-    component: UsersComponent,
-    children: [{ path: ':id/:name', component: UserComponent },
-    { path: ':id/:name/edit', component: EditComponent }],
-  },
-
-  { path: 'categories', component: CategoriesComponent },
-];
+import { ErrorComponent } from './error/error.component';
+import { AuthService } from 'src/services/auth.service';
+import { AuthGuardService } from 'src/services/guard/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +20,10 @@ const appRoutes: Routes = [
     CategoriesComponent,
     UserComponent,
     EditComponent,
+    ErrorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
